@@ -1,19 +1,25 @@
+# -*- encoding: utf-8 -*-
+$:.push File.expand_path("../lib", __FILE__)
+require "prawnto/version"
+
 Gem::Specification.new do |s|
-  s.name = %q{prawnto}
-  s.version = "2.0.1"
-  s.required_rubygems_version = ">= 1.3.6"
+  s.name        = "prawnto"
+  s.version     = Prawnto::VERSION
+  s.authors     = ["smecsia", "niquola", "bondarev"]
+  s.email       = ["smecsia@gmail.com", "alexander.i.bondarev@gmail.com"]
+  s.homepage    = "https://github.com/smecsia/prawnto"
+  s.summary     = %q{Support .prawn templates as Prawn::Document content}
+  s.description = %q{Support .prawn templates as Prawn::Document content}
 
-  s.authors = ['Some Body']
-  s.email   = ['some@body.com']
-  s.date = '2011-09-13'
+  s.rubyforge_project = "prawnto"
 
-  s.homepage = %q{http://github.com/comverge/prawnto}
-  s.summary = %q{PDF views}
-  s.description = %q{PDF views}
-
-  exclude_folders = 'spec/rails/{doc,lib,log,nbproject,tmp,vendor,test}'
-  exclude_files = Dir['**/*.log'] + Dir[exclude_folders+'/**/*'] + Dir[exclude_folders]
-  s.files = Dir['{examples,lib,tasks,spec}/**/*'] -
-    exclude_files
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  # specify any dependencies here; for example:
+  # s.add_development_dependency "rspec"
+  s.add_runtime_dependency "prawn"
+  s.add_runtime_dependency 'rails', '>=2.1'
 end
