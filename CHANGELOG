@@ -1,0 +1,2 @@
+## 0.1.1
+* Fixed undefined Mime::PDF for Rails 5.  
